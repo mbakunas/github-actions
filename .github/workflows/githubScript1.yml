@@ -28,9 +28,6 @@ jobs:
       uses: actions/github-script@v6
       with:
         script: |
-          github.rest.projects.createCard({
-            column_id: 0,
-            content_id: context.payload.issue.id,
-            content_type: "Issue",
-            note: "🎉 Issue added to board using GitHub Script!!!"
+          github.rest.projects.get({
+            project_id: 3
             });
