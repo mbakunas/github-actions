@@ -24,10 +24,14 @@ jobs:
             body: "🎉 You've created this issue comment using GitHub Script!!!"
           })
     
-    - name: Add issue to project board
+    - name: Get project
+      id: get-project
       uses: actions/github-script@v6
       with:
         script: |
           github.rest.projects.get({
             project_id: 3
             });
+
+    - name: get output
+      run: echo"${{steps.get-project.outputs.result}}"
