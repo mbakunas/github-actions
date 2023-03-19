@@ -23,6 +23,7 @@ jobs:
             repo: context.repo.repo,
             body: "🎉 You've created this issue comment using GitHub Script!!!"
           })
+        result-encoding: string
     
     - name: Get project
       id: get-project
