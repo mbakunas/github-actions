@@ -34,4 +34,4 @@ jobs:
             });
 
     - name: get output
-      run: echo"${{steps.get-project.outputs.result}}"
+      run: echo "${{steps.get-project.outputs.result}}"
