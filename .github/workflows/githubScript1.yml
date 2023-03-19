@@ -4,9 +4,9 @@ on:
   issues:
     types: [opened]
 
-permissions:
-  issues: write
-  repository-projects: write
+permissions: write-all
+  #issues: write
+  #repository-projects: write
 
 jobs:
   comment:
