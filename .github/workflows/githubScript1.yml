@@ -6,12 +6,14 @@ on:
 
 permissions:
   issues: write
+  repository-projects: write
 
 jobs:
   comment:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/github-script@v6
+    - name: Comment on new issue
+      uses: actions/github-script@v6
       with:
         #github-token: ${{secrets.GITHUB_TOKEN}}
         script: |
@@ -21,3 +23,13 @@ jobs:
             repo: context.repo.repo,
             body: "🎉 You've created this issue comment using GitHub Script!!!"
           })
+    
+    - name: Add issue to project board
+      uses: actions/github-script@v6
+      with:
+        script: |
+          github.rest.projects.createCard({
+            column_id: {{columnID}},
+            content_id: context.payload.issue.id,
+            content_type: "Issue"
+            });
