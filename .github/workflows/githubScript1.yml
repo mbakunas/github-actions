@@ -29,7 +29,7 @@ jobs:
       with:
         script: |
           github.rest.projects.createCard({
-            column_id: 1,
+            column_id: 0,
             content_id: context.payload.issue.id,
             content_type: "Issue",
             note: "🎉 Issue added to board using GitHub Script!!!"
